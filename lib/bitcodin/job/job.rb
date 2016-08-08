@@ -1,13 +1,16 @@
 module Bitcodin
   class Job
     attr_accessor :values
-    def initialize(inputId, encodingProfileId, manifestTypes, speed=nil, drmConfig=nil, hlsEncryptionConfig=nil, audioMetaDataConfigs=nil, location=nil, videoMetaData=nil, extractClosedCaptions=nil, outputId=nil)
+    def initialize(inputId, encodingProfileId, manifestTypes, speed=nil, outputId=nil, drmConfig=nil, hlsEncryptionConfig=nil, audioMetaDataConfigs=nil, location=nil, videoMetaData=nil, extractClosedCaptions=nil)
       @values = '{'
       @values += '"inputId": ' + inputId.to_s + ','
       @values += '"encodingProfileId": ' + encodingProfileId.to_s + ','
       @values += '"manifestTypes": ' + manifestTypes.to_s + ''
       unless speed.nil?
         @values += ',"speed": ' + '"' + speed.to_s + '"' + ''
+      end
+      unless outputId.nil?
+        @values += ",\"outputId\": #{outputId}"
       end
       unless drmConfig.nil?
         @values += ',"drmConfig": ' + drmConfig + ''
@@ -40,9 +43,6 @@ module Bitcodin
           end
         end
         @values += ']'
-      end
-      unless outputId.nil?
-        @values += ',"outputId": ' + outputId.to_s
       end
       @values += '}'
     end
