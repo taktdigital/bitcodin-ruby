@@ -173,7 +173,7 @@ module Bitcodin
 
     def createTransferJob(config)
       url = @apiURL.concat('job/transfer')
-      return @httpClient.sendRequest('post', url, config.values)
+      return @httpClient.sendRequest('post', url, config.values.to_json)
     end
 
     def listTransferJob(id)
