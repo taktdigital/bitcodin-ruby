@@ -32,7 +32,7 @@ module Bitcodin
 
     def initialize(apiKey)
       @apiKey  = apiKey
-      @apiURL  = 'http://portal.bitcodin.com/api/'
+      @apiURL  = 'https://portal.bitcodin.com/api/'
       @headers = {
           :content_type => 'application/json',
           :bitcodin_api_version => 'v1',
