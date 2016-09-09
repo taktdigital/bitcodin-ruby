@@ -4,10 +4,10 @@ module Bitcodin
     attr_accessor :values
 
     def initialize(jobId, outputId)
-      @values = '{
-        "jobId": '     +  jobId.to_s + ',
-        "outputId": '  + outputId.to_s + '
-      }'
+      @values = {
+        jobId: jobId.to_s,
+        outputId:outputId.to_s
+      }
     end
 
   end
